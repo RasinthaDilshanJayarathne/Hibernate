@@ -1,24 +1,36 @@
 import entity.Customer;
+import entity.Item;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.FactoryConfigeration;
 
-public class Appinitializer extends Application {
+public class Appinitializer{
 
     public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
         Customer customer=new Customer();
-        customer.getId("C001");
-        customer.getTitle("Mis");
-        customer.getName("Nimali");
-        customer.getAddress("123/b ");
-        customer.getCity("Galle");
-        customer.getProvince("South");
-        customer.getPostalCode("1234");
+        customer.setId("C001");
+        customer.setName("Kavee");
+        customer.setAddress("123/dd ");
+        customer.setSalary(500000);
 
+        Item item=new Item();
+        item.setCode("I001");
+        item.setDiscription("Milk");
+        item.setQty(100);
+        item.setUnitPrice(50.00);
+
+        Session session = FactoryConfigeration.getInstance().getSession();
+
+        Transaction transaction = session.beginTransaction();
+
+        session.save(customer);
+        session.save(item);
+
+        transaction.commit();
+
+        session.close();
 
     }
 }

@@ -1,25 +1,26 @@
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "customer_detail")
 public class Customer {
+    @Id
     private String Id;
-    private String title;
+    @Column(name = "customer_name")
     private String name;
     private String address;
-    private String city;
-    private String province;
-    private String PostalCode;
+    private double salary;
 
     public Customer() {
     }
 
-    public Customer(String id, String title, String name, String address, String city, String province, String postalCode) {
+    public Customer(String id, String name, String address, double salary) {
         setId(id);
-        this.setTitle(title);
         this.setName(name);
         this.setAddress(address);
-        this.setCity(city);
-        this.setProvince(province);
-        setPostalCode(postalCode);
+        this.setSalary(salary);
     }
 
     public String getId() {
@@ -28,14 +29,6 @@ public class Customer {
 
     public void setId(String id) {
         Id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getName() {
@@ -54,40 +47,21 @@ public class Customer {
         this.address = address;
     }
 
-    public String getCity() {
-        return city;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getPostalCode() {
-        return PostalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        PostalCode = postalCode;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "Id='" + Id + '\'' +
-                ", title='" + title + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", province='" + province + '\'' +
-                ", PostalCode='" + PostalCode + '\'' +
+                ", salary=" + salary +
                 '}';
     }
 }

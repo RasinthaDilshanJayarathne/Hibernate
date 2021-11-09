@@ -1,5 +1,7 @@
 package util;
 
+import entity.Customer;
+import entity.Item;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,11 +11,11 @@ public class FactoryConfigeration {
     private SessionFactory sessionFactory;
 
     private FactoryConfigeration(){
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration().configure().addAnnotatedClass(Customer.class).addAnnotatedClass(Item.class);
         sessionFactory=configuration.buildSessionFactory();
 
     }
-    private static FactoryConfigeration getInstance(){
+    public static FactoryConfigeration getInstance(){
         return (factoryConfigeration==null)? factoryConfigeration=new FactoryConfigeration() : factoryConfigeration;
     }
 
