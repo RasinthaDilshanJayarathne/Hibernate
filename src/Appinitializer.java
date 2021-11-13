@@ -1,3 +1,5 @@
+import embeded.Name;
+import entity.Animal;
 import entity.Customer;
 import entity.Item;
 import javafx.application.Application;
@@ -9,29 +11,27 @@ import util.FactoryConfigeration;
 public class Appinitializer{
 
     public static void main(String[] args) {
-        Customer customer=new Customer();
-        customer.setId("C002");
-        customer.setName("Rasi");
-        customer.setAddress("12/d ");
-        customer.setSalary(500000);
 
-        Item item=new Item();
-        item.setCode("I002");
-        item.setDiscription("Cake");
-        item.setQty(100);
-        item.setUnitPrice(250.00);
+        Name name = new Name();
+        name.setfName("Animal");
+        name.setmName("AnimalOne");
+        name.setlName("AnimalTwo");
+
+        Animal animal=new Animal();
+
+        animal.setId("A001");
+        animal.setName(name);
 
         Session session = FactoryConfigeration.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
 
         // get customer
-        Customer c1 = session.get(Customer.class, "C002");
+        /*Customer c1 = session.get(Customer.class, "C002");
         System.out.println(c1);
-        System.out.println(c1.getAddress());
+        System.out.println(c1.getAddress());*/
 
-       /* session.save(customer);
-        session.save(item);*/
+        session.save(animal);
 
         transaction.commit();
 
