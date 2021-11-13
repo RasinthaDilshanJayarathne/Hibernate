@@ -12,16 +12,6 @@ public class Appinitializer{
 
     public static void main(String[] args) {
 
-        Name name = new Name();
-        name.setfName("Animal");
-        name.setmName("AnimalOne");
-        name.setlName("AnimalTwo");
-
-        Animal animal=new Animal();
-
-        animal.setId("A001");
-        animal.setName(name);
-
         Session session = FactoryConfigeration.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
@@ -31,7 +21,6 @@ public class Appinitializer{
         System.out.println(c1);
         System.out.println(c1.getAddress());*/
 
-        session.save(animal);
 
         transaction.commit();
 
