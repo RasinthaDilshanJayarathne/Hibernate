@@ -10,23 +10,28 @@ public class Appinitializer{
 
     public static void main(String[] args) {
         Customer customer=new Customer();
-        customer.setId("C001");
-        customer.setName("Kavee");
-        customer.setAddress("123/dd ");
+        customer.setId("C002");
+        customer.setName("Rasi");
+        customer.setAddress("12/d ");
         customer.setSalary(500000);
 
         Item item=new Item();
-        item.setCode("I001");
-        item.setDiscription("Milk");
+        item.setCode("I002");
+        item.setDiscription("Cake");
         item.setQty(100);
-        item.setUnitPrice(50.00);
+        item.setUnitPrice(250.00);
 
         Session session = FactoryConfigeration.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
 
-        session.save(customer);
-        session.save(item);
+        // get customer
+        Customer c1 = session.get(Customer.class, "C002");
+        System.out.println(c1);
+        System.out.println(c1.getAddress());
+
+       /* session.save(customer);
+        session.save(item);*/
 
         transaction.commit();
 
