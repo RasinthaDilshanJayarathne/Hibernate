@@ -1,9 +1,6 @@
 package util;
 
-import entity.Customer;
-import entity.Item;
-import entity.Passport;
-import entity.Person;
+import entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -13,7 +10,7 @@ public class FactoryConfigeration {
     private SessionFactory sessionFactory;
 
     private FactoryConfigeration(){
-        Configuration configuration = new Configuration().configure().addAnnotatedClass(Passport.class).addAnnotatedClass(Person.class);
+        Configuration configuration = new Configuration().configure().addAnnotatedClass(Lectuer.class).addAnnotatedClass(Subject.class);
         sessionFactory=configuration.buildSessionFactory();
 
     }

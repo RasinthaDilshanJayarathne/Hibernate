@@ -9,7 +9,6 @@ public class Passport {
     @Id
     private String psId;
     private double fee;
-
     @OneToOne
     private  Person person;
 
