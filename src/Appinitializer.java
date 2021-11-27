@@ -80,7 +80,7 @@ public class Appinitializer{
             System.out.println("Error");
         }*/
 
-        String hql ="SELECT o.Oid, p.name FROM Owner o INNER  JOIN Pet p ON o.Oid = p.owner_Oid";
+        String hql ="SELECT o.Oid, p.name FROM Owner o INNER  JOIN Pet p ON o.Oid = p.owner";
         List<Object[]> list = session.createQuery(hql).list();
 
         for (Object[] objects :list) {
