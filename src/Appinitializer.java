@@ -53,6 +53,21 @@ public class Appinitializer{
             System.out.println(owner.getName());
         }*/
 
+        /*String name = "Somapala";
+        String id = "O002";
+        String hql = "UPDATE Owner SET name = :owner_name WHERE Oid = :owner_id";
+        Query query = session.createQuery(hql);
+        query.setParameter("owner_id",id);
+        query.setParameter("owner_name",name);
+
+        int i = query.executeUpdate();
+
+        if (i>0){
+            System.out.println("Hureeeeeee!!!");
+        }else{
+            System.out.println("Error");
+        }*/
+
         transaction.commit();
 
         session.close();
