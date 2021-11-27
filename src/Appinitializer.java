@@ -34,13 +34,24 @@ public class Appinitializer{
             System.out.println(owner.getName());
         }*/
 
-        String hql = "FROM Owner o ORDER BY o.Oid DESC";
+        /*String hql = "FROM Owner o ORDER BY o.Oid DESC";
         List<Owner> list = session.createQuery(hql).list();
 
         for (Owner owner:list) {
             System.out.print(owner.getOid() + ":");
             System.out.println(owner.getName());
-        }
+        }*/
+/*
+        String name = "Rasi";
+        String hql = "FROM Owner WHERE name = :owner_name";
+        Query query = session.createQuery(hql);
+        query.setParameter("owner_name",name);
+        List<Owner> list = query.list();
+
+        for (Owner owner :list) {
+            System.out.print(owner.getOid() + ":");
+            System.out.println(owner.getName());
+        }*/
 
         transaction.commit();
 
