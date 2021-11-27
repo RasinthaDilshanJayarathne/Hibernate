@@ -13,18 +13,24 @@ public class Appinitializer{
 
     public static void main(String[] args) {
 
-
-
         Session session = FactoryConfigeration.getInstance().getSession();
 
         Transaction transaction = session.beginTransaction();
 
-        String hql= "FROM Owner";
+        /*String hql= "SELECT name FROM Owner";
         Query query = session.createQuery(hql);
-        List<Owner> list = query.list();
+        List<String> list = query.list();
+
+        for (String s:list) {
+            System.out.print(s);
+        }*/
+
+        String hql= "FROM  Owner c WHERE name LIKE 'Ra%'";
+
+        List<Owner> list = session.createQuery(hql).list();
 
         for (Owner owner:list) {
-            System.out.println(owner.getOid());
+            System.out.print(owner.getOid() + ":");
             System.out.println(owner.getName());
         }
 
