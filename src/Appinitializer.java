@@ -25,8 +25,16 @@ public class Appinitializer{
             System.out.print(s);
         }*/
 
-        String hql= "FROM  Owner c WHERE name LIKE 'Ra%'";
+        /*String hql= "FROM  Owner c WHERE name LIKE 'Ra%'";
 
+        List<Owner> list = session.createQuery(hql).list();
+
+        for (Owner owner:list) {
+            System.out.print(owner.getOid() + ":");
+            System.out.println(owner.getName());
+        }*/
+
+        String hql = "FROM Owner o ORDER BY o.Oid DESC";
         List<Owner> list = session.createQuery(hql).list();
 
         for (Owner owner:list) {
