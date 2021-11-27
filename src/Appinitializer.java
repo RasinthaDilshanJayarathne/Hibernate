@@ -68,6 +68,18 @@ public class Appinitializer{
             System.out.println("Error");
         }*/
 
+        String id ="O002";
+        String hql = "DELETE FROM Owner WHERE Oid = :owner_id";
+
+        Query query = session.createQuery(hql);
+        query.setParameter("owner_id",id);
+
+        if (query.executeUpdate() > 0){
+            System.out.println("Hureeeeeee!!!");
+        }else {
+            System.out.println("Error");
+        }
+
         transaction.commit();
 
         session.close();
