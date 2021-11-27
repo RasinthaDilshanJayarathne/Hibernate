@@ -68,7 +68,7 @@ public class Appinitializer{
             System.out.println("Error");
         }*/
 
-        String id ="O002";
+       /* String id ="O002";
         String hql = "DELETE FROM Owner WHERE Oid = :owner_id";
 
         Query query = session.createQuery(hql);
@@ -78,6 +78,13 @@ public class Appinitializer{
             System.out.println("Hureeeeeee!!!");
         }else {
             System.out.println("Error");
+        }*/
+
+        String hql ="SELECT o.Oid, p.name FROM Owner o INNER  JOIN Pet p ON o.Oid = p.owner_Oid";
+        List<Object[]> list = session.createQuery(hql).list();
+
+        for (Object[] objects :list) {
+            System.out.println(objects[0] + ":" + objects[1] + ":" + objects[2]);
         }
 
         transaction.commit();

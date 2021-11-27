@@ -1,0 +1,1 @@
+SELECT o.Oid, p.name FROM Owner o INNER  JOIN Pet p ON o.Oid = p.owner_Oid
