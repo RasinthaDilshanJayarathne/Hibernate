@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Owner {
     private
     String Oid;
     private String name;
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
     private List<Pet> petList = new ArrayList();
 
     public Owner() {
@@ -53,7 +54,6 @@ public class Owner {
         return "Owner{" +
                 "Oid='" + Oid + '\'' +
                 ", name='" + name + '\'' +
-                ", petList=" + petList +
                 '}';
     }
 }

@@ -51,7 +51,6 @@ public class Pet {
         return "Pet{" +
                 "Pid='" + Pid + '\'' +
                 ", name='" + name + '\'' +
-                ", owner=" + owner +
                 '}';
     }
 }
