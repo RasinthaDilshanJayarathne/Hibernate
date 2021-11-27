@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import util.FactoryConfigeration;
 
@@ -88,6 +89,14 @@ public class Appinitializer{
         }*/
 
         String sql = "SELECT * FROM owner";
+        NativeQuery sqlQuery = session.createSQLQuery(sql);
+        sqlQuery.addEntity(Owner.class);
+        List<Owner> list = sqlQuery.list();
+
+        for (Owner owner:list) {
+            System.out.print(owner.getOid() + ":");
+            System.out.println(owner.getName());
+        }
 
         transaction.commit();
 
